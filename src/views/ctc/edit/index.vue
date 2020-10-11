@@ -3,7 +3,7 @@
     <h3>{{title}}</h3>
     <ul class="news-info">
       <li>
-        <span class="label">新闻title</span>
+        <span class="label">标题</span>
         <div class="news-item">
           <el-input
             v-model="newsForm.title"
