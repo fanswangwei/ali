@@ -10,7 +10,7 @@ const routers = new VueRouter({
   routes: [
     {
       name: "ctc",
-      path: "/ctc",
+      path: "/news",
       meta: { title: "CTC" },
       redirect: '/vue',
       component: Nav,

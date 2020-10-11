@@ -9,7 +9,7 @@
         mode="horizontal"
         :router="true"
         class="top-nav">
-        <el-menu-item index="ctc" :route="{name: 'ctc'}">
+        <el-menu-item index="ctc" :route="{name: 'news'}">
           <!-- <i class="el-icon-setting"></i> -->
           <span slot="title">CTC</span>
         </el-menu-item>
