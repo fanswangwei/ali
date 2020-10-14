@@ -18,7 +18,7 @@
   </div>
 </template>
 <script>
-import { getUserInfo, deleteUserInfo } from "@/api/api";
+import { testHealth } from "@/api/api";
 export default {
   name: "",
   data() {
@@ -31,10 +31,8 @@ export default {
   },
   methods: {
     getUserInfo() {
-      // getUserInfo().then(res => {
-      //   if (res.code === 200) {
-      //     this.userInfoList = res.data;
-      //   }
+      // testHealth().then(res => {
+        
       // });
     },
     deleteUserInfo(scope) {
