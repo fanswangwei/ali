@@ -3,37 +3,42 @@ import VueRouter from "vue-router";
 import Nav from "@/components/nav";
 import lostPage from "@/views/404";
 import CTC from "./modules/ctc";
+import loginPage from "@/views/login/login"
 Vue.use(VueRouter)
 
 const routers = new VueRouter({
-  mode: 'history',
-  routes: [
-    {
-      name: "ctc",
-      path: "/news",
-      meta: { title: "CTC" },
-      redirect: '/vue',
-      component: Nav,
-      children: [...CTC]
-    },
-    {
-      name: "ctc",
-      path: '/',
-      redirect: '/news' // 重定向
-    },
-    {
-      name: "default_404",
-      path: '/404',
-      component: lostPage
-    // },
-    // {
-    //   path: "*",
-    //   redirect: "/404"
+    mode: 'history',
+    routes: [{
+            name: "",
+            path: '/',
+            redirect: "/login"
+        },
+        {
+            name: "login",
+            path: '/login',
+            component: loginPage
+        },
+        {
+            name: "ctc",
+            path: "/news",
+            meta: { title: "CTC" },
+            component: Nav,
+            children: [...CTC]
+        },
+
+        {
+            name: "default_404",
+            path: '/404',
+            component: lostPage
+                // },
+                // {
+                //   path: "*",
+                //   redirect: "/404"
+        }
+    ],
+    scrollBehavior(to, from, savedPosition) {
+        return { x: 0, y: 0 };
     }
-  ],
-  scrollBehavior(to, from, savedPosition) {
-    return { x: 0, y: 0 };
-  }
 })
 
 export default routers;

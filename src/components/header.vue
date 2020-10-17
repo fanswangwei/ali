@@ -1,7 +1,7 @@
 <template>
   <div class="wapper">
     <div class="logo">
-      <h3>管理后台</h3>
+      <h3>CTC管理后台</h3>
     </div>
     <div class="header-nav">
       <el-menu
