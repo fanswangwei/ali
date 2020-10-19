@@ -38,7 +38,13 @@ export default {
       }
       login(params).then( res => {
         if(res.code == 200){
+					this.$message({
+						message: '登录成功',
+						type: 'success'
+					});
           this.$router.push({name:'news',params:{userName:"admin"}});
+        }else {
+          this.$message.error('登录失败，账户或密码错误！');
         }
       })
     }

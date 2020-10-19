@@ -15,13 +15,13 @@
         </el-menu-item>
       </el-menu>
       <div class="center">
-        <el-dropdown>
+        <el-dropdown @command="logout">
           <span class="el-dropdown-link">
             <img :src="require('@assets/svg/center.svg')" alt="">
           </span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>修改密码</el-dropdown-item>
-            <el-dropdown-item>退出</el-dropdown-item>
+            <!-- <el-dropdown-item>修改密码</el-dropdown-item> -->
+            <el-dropdown-item command="logout">退出</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </div>
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import { logout } from "@/api/api";
 export default {
   name: "appHeader",
   props: {},
@@ -46,6 +47,18 @@ export default {
     }
     console.log(this.activeNav)
   },
+  methods: {
+    logout(command){
+      console.log('qqqqq');
+      if(command == 'logout'){
+        logout().then(res => {
+          if(res.code == 200){
+            this.$router.push('/')
+          }
+        })
+      }
+    }
+  }
 };
 </script>
 
