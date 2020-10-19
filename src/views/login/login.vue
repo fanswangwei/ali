@@ -17,6 +17,7 @@
   </div>
 </template>
 <script>
+import { login } from "@/api/api";
 export default {
   name: '',
   data() {
@@ -31,7 +32,15 @@ export default {
     subLogin(){
       console.log(this.user.name);
       console.log(this.user.password);
-      this.$router.push({name:'news',params:{userName:"admin"}});
+      let params = {
+        name: this.user.name,
+        password: this.user.password
+      }
+      login(params).then( res => {
+        if(res.code == 200){
+          this.$router.push({name:'news',params:{userName:"admin"}});
+        }
+      })
     }
   }
 };
