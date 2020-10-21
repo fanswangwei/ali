@@ -2,25 +2,25 @@ import { getData, postData } from "./util";
 
 // 测试
 export function testHealth(json) {
-  return  getData("/api/health", json)
+  return  getData("/health", json)
 }
-// 添加用户信息
-export function addUserInfo(json) {
-  return  postData("/api/addUserInfo", json)
+// login
+export function login(json) {
+  return  postData("/login", json)
 }
-// 获取用户信息
-export function getUserInfo(json) {
-  return  getData("/api/searchUserInfo", json)
+// logout
+export function logout(json) {
+  return  postData("/logout", json)
 }
-// 编辑用户信息
-export function updateUserInfo(json) {
-  return  postData("/api/updateUserInfo", json)
+// addnews
+export function addNews(json) {
+  return  postData("/news/add", json)
 }
-// 删除用户信息
-export function deleteUserInfo(json) {
-  return  postData("/api/deleteUserInfo", json)
+// getnews
+export function getNews(json) {
+  return  getData("/news/get", json)
 }
-// 获取城市信息
-export function cityQuery(json) {
-  return  getData("/city/query", json)
+// deleteNews
+export function deleteNews(json) {
+  return  postData("/news/delete", json)
 }

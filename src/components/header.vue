@@ -1,7 +1,7 @@
 <template>
   <div class="wapper">
     <div class="logo">
-      <h3>管理后台</h3>
+      <h3>CTC管理后台</h3>
     </div>
     <div class="header-nav">
       <el-menu
@@ -9,19 +9,19 @@
         mode="horizontal"
         :router="true"
         class="top-nav">
-        <el-menu-item index="ctc" :route="{name: 'ctc'}">
+        <el-menu-item index="ctc" :route="{name: 'news'}">
           <!-- <i class="el-icon-setting"></i> -->
           <span slot="title">CTC</span>
         </el-menu-item>
       </el-menu>
       <div class="center">
-        <el-dropdown>
+        <el-dropdown @command="logout">
           <span class="el-dropdown-link">
             <img :src="require('@assets/svg/center.svg')" alt="">
           </span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>修改密码</el-dropdown-item>
-            <el-dropdown-item>退出</el-dropdown-item>
+            <!-- <el-dropdown-item>修改密码</el-dropdown-item> -->
+            <el-dropdown-item command="logout">退出</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </div>
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import { logout } from "@/api/api";
 export default {
   name: "appHeader",
   props: {},
@@ -46,6 +47,20 @@ export default {
     }
     console.log(this.activeNav)
   },
+  methods: {
+    logout(command){
+      console.log('qqqqq');
+      if(command == 'logout'){
+        logout().then(res => {
+          if(res.code == 200){
+            this.$cookieStore.delCookie( 'logSession');//存入用户名，设置有效时间1分钟
+            this.$router.push('/')
+
+          }
+        })
+      }
+    }
+  }
 };
 </script>
 
