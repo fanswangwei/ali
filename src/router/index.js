@@ -7,9 +7,9 @@ import loginPage from "@/views/login/login"
 Vue.use(VueRouter)
 
 const routers = new VueRouter({
-    mode: 'history',
+    mode: 'hash',
     routes: [{
-            name: "",
+            name: "home",
             path: '/',
             redirect: "/login"
         },

@@ -45,7 +45,7 @@
 					<div class="news-item">
 						<el-upload
 							class="avatar-uploader"
-							action="http://127.0.0.1:9999/upload"
+							action="//8.129.3.87:9999/upload"
 							:show-file-list="false"
 							:limit="1"
 							:on-success="handleAvatarSuccess">
@@ -146,7 +146,7 @@ export default {
 			this.editor.config.height = 300;
 			this.editor.config.zIndex = 100;
 			this.editor.txt.html(this.newsForm.content);
-			this.editor.config.uploadImgServer = 'http://127.0.0.1:9999/upload'
+			this.editor.config.uploadImgServer = '//8.129.3.87:9999/upload'
 			this.editor.config.uploadImgMaxLength = 1;
 			this.editor.config.onchange = (newHtml) => {
 				this.newsForm.content = newHtml;

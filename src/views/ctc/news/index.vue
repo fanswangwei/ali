@@ -29,7 +29,7 @@
       </el-table-column>
 			<el-table-column prop="coverUrl" align="center" label="封面">
         <template slot-scope="scope">
-          <a :href="scope.row.coverUrl" target="_blank"><img :src="scope.row.coverUrl" alt="封面图片" width="100" height="80"></a>
+          <a :href="scope.row.coverUrl" target="_blank"><img :src="scope.row.coverUrl" alt="封面图片" width="80%" height="80"></a>
         </template>
       </el-table-column>
 			<el-table-column prop="createdTime" align="center" label="创建时间">
