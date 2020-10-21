@@ -53,7 +53,9 @@ export default {
       if(command == 'logout'){
         logout().then(res => {
           if(res.code == 200){
+            this.$cookieStore.delCookie( 'logSession');//存入用户名，设置有效时间1分钟
             this.$router.push('/')
+
           }
         })
       }

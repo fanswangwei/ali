@@ -26,18 +26,20 @@ export default {
     };
   },
   created() {
-    
+    if(this.$cookieStore.getCookie('logSession')){
+      this.$router.push('/news')
+    }
   },
   methods: {
     subLogin(){
-      console.log(this.user.name);
-      console.log(this.user.password);
       let params = {
         name: this.user.name,
         password: this.user.password
       }
       login(params).then( res => {
         if(res.code == 200){
+          this.$cookieStore.setCookie( 'logSession', 'admin' + Math.random(10), 12000);//存入用户名，设置有效时间120分钟
+          this.$cookieStore.delCookie( 'status')
 					this.$message({
 						message: '登录成功',
 						type: 'success'
