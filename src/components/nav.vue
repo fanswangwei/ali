@@ -34,6 +34,7 @@ export default {
   computed: {
     navList() {
       let navList = [];
+      console.log(this.$route.meta)
       if(this.$route.meta && this.$route.meta.parent){
         navList = this.filterNav(this.$route.meta.parent);
       }else {
@@ -64,6 +65,7 @@ export default {
     // 通过菜单名从route.js中找到对应的路由列表
     filterNav(name){
       let routeList = this.$router.options.routes;
+      console.log(routeList)
       routeList = routeList.find(item => item.name === name);
       if(routeList.children){
         return routeList.children;

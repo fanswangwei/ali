@@ -1,30 +1,7 @@
 <template>
   <div class="wapper">
     <div class="logo">
-      <h3>CTC管理后台</h3>
-    </div>
-    <div class="header-nav">
-      <el-menu
-        :default-active="activeNav"
-        mode="horizontal"
-        :router="true"
-        class="top-nav">
-        <el-menu-item index="ctc" :route="{name: 'news'}">
-          <!-- <i class="el-icon-setting"></i> -->
-          <span slot="title">CTC</span>
-        </el-menu-item>
-      </el-menu>
-      <div class="center">
-        <el-dropdown @command="logout">
-          <span class="el-dropdown-link">
-            <img :src="require('@assets/svg/center.svg')" alt="">
-          </span>
-          <el-dropdown-menu slot="dropdown">
-            <!-- <el-dropdown-item>修改密码</el-dropdown-item> -->
-            <el-dropdown-item command="logout">退出</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-      </div>
+      <img :src="require('@assets/images/LIBERTAS.png')" alt="LIBERTAS">
     </div>
   </div>
 </template>

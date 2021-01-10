@@ -10,6 +10,11 @@ export default {
   name: 'App',
   components: {
     
+  },
+  created(){
+
+      let routeList = this.$router.options.routes;
+      console.log(routeList)
   }
 }
 </script>

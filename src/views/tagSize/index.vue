@@ -1,5 +1,6 @@
 <template>
   <div>
+    尺码标
   </div>
 </template>
 <script>
@@ -7,10 +8,11 @@ export default {
   name: '',
   data() {
     return {
-
+      
     };
   },
-  mounted() {
+  created() {
+    
   },
   methods: {
     
@@ -18,5 +20,5 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
-
+  
 </style>

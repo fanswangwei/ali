@@ -2,12 +2,10 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Nav from "@/components/nav";
 import lostPage from "@/views/404";
-import CTC from "./modules/ctc";
-import loginPage from "@/views/login/login"
+import ALI from "./modules/ali";
 Vue.use(VueRouter)
 const originalPush = VueRouter.prototype.push
-VueRouter.prototype.push = function push (location, onResolve, onReject) {
-  if (onResolve || onReject) return originalPush.call(this, location, onResolve, onReject)
+VueRouter.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err)
 }
 const routers = new VueRouter({
@@ -15,14 +13,14 @@ const routers = new VueRouter({
     routes: [{
             name: "home",
             path: '/',
-            redirect: "/login"
+            redirect: "/tagSize"
         },
         {
-            name: "ctc",
-            path: "/news",
-            meta: { title: "CTC" },
+            name: "ali",
+            path: "/ali",
+            meta: { title: "ALI" },
             component: Nav,
-            children: [...CTC]
+            children: [...ALI]
         },
 
         {
