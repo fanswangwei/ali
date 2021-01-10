@@ -3,6 +3,9 @@
     <div class="logo">
       <img :src="require('@assets/images/LIBERTAS.png')" alt="LIBERTAS">
     </div>
+    <div class="header-nav">
+      <h3>义乌市昶盈贸易有限公司</h3>
+    </div>
   </div>
 </template>
 
@@ -22,21 +25,9 @@ export default {
     }else {
       this.activeNav = this.$route.name
     }
-    console.log(this.activeNav)
   },
   methods: {
-    logout(command){
-      console.log('qqqqq');
-      if(command == 'logout'){
-        logout().then(res => {
-          if(res.code == 200){
-            this.$cookieStore.delCookie( 'logSession');//存入用户名，设置有效时间1分钟
-            this.$router.push('/')
-
-          }
-        })
-      }
-    }
+    
   }
 };
 </script>
@@ -48,30 +39,22 @@ export default {
   background: #fff;
   .logo {
     float: left;
+    width: 200px;
     height: 60px;
     border-bottom: 1px solid #e6e6e6;
     border-right: 1px solid #e6e6e6;
+    img {
+      width: 176px;
+      margin: 0 auto;
+    }
+  }
+  .header-nav {
+    margin-left: 200px;
     h3 {
       line-height: 60px;
       text-align: center;
       font-size: 24px;
       font-weight: bold;
-      width: 199px;
-    }
-  }
-  .header-nav {
-    margin-left: 200px;
-    position: relative;
-    .top-nav {
-      height: 60px;
-      .el-menu-item {
-        height: 59px;
-      }
-    }
-    .center {
-      position: absolute;
-      top: 14px;
-      right: 20px;
     }
   }
 }

@@ -13,8 +13,6 @@ export default {
   },
   created(){
 
-      let routeList = this.$router.options.routes;
-      console.log(routeList)
   }
 }
 </script>
