@@ -18,11 +18,6 @@ const routers = new VueRouter({
             redirect: "/login"
         },
         {
-            name: "login",
-            path: '/login',
-            component: loginPage
-        },
-        {
             name: "ctc",
             path: "/news",
             meta: { title: "CTC" },
