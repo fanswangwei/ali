@@ -98,7 +98,7 @@
 								<input type="file" @change="uploadProductImg($event, 'productImgColor' + idx)" />
 							</form>
 						</div>
-						<p>{{ productTypeNum + '-' + (idx + 1) }}</p>
+						<p>{{ 'CY-' + (idx + 1) }}</p>
 					</li>
 				</ul>
 			</div>
