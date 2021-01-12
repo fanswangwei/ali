@@ -77,7 +77,7 @@
 							:style="{ width: 'calc(100% /' + tagList.length + ')' }"
 							@click="inputTagSise(child, index)"
 						>
-							<span>{{ child['col' + (index + 1)] }}</span>
+							<span>{{ index ? (child['col' + (index + 1)] + 'cm') : child['col' + (index + 1)] }}</span>
 						</div>
 					</li>
 				</ul>
@@ -110,7 +110,7 @@ export default {
 	name: '',
 	data() {
 		return {
-			tagList: ['Tag Size', 'Length', 'Chest', 'Shoulder', 'Sleeve Length'],
+			tagList: ['Tag Size', 'Length'],
 			tagInputStatus: false,
 			tagValue: '',
 			productTypeNum: 'CY-',
@@ -119,60 +119,36 @@ export default {
       tagSizeColor: '#281be0',
 			tableData: [
 				{
-					col1: '000',
-					col2: '000',
-					col3: '000',
-					col4: '000',
-					col5: '000',
+					col1: '0',
+					col2: '0',
 				},
 				{
-					col1: '000',
-					col2: '000',
-					col3: '000',
-					col4: '000',
-					col5: '000',
+					col1: '0',
+					col2: '0',
 				},
 				{
-					col1: '000',
-					col2: '000',
-					col3: '000',
-					col4: '000',
-					col5: '000',
+					col1: '0',
+					col2: '0',
 				},
 				{
-					col1: '000',
-					col2: '000',
-					col3: '000',
-					col4: '000',
-					col5: '000',
+					col1: '0',
+					col2: '0',
 				},
 				{
-					col1: '000',
-					col2: '000',
-					col3: '000',
-					col4: '000',
-					col5: '000',
+					col1: '0',
+					col2: '0',
 				},
 				{
-					col1: '000',
-					col2: '000',
-					col3: '000',
-					col4: '000',
-					col5: '000',
+					col1: '0',
+					col2: '0',
 				},
 				{
-					col1: '000',
-					col2: '000',
-					col3: '000',
-					col4: '000',
-					col5: '000',
+					col1: '0',
+					col2: '0',
 				},
 				{
-					col1: '000',
-					col2: '000',
-					col3: '000',
-					col4: '000',
-					col5: '000',
+					col1: '0',
+					col2: '0',
 				},
 			],
 		}
@@ -180,7 +156,8 @@ export default {
 	created() {},
 	methods: {
 		handleClose(tag) {
-			this.tagList.splice(this.tagList.indexOf(tag), 1)
+			let index = this.tagList.indexOf(tag);
+			this.tagList.splice(index, 1)
 		},
 		showInput() {
 			this.tagInputStatus = true
@@ -199,9 +176,9 @@ export default {
 		},
 		dealTableData() {
 			this.tableData.map((item) => {
-				this.$set(item, 'col' + this.tagList.length, '000')
+				this.$set(item, 'col' + this.tagList.length, '0')
 				// item['col' + this.tagList.length] = 'xx'
-				console.log(item)
+				// console.log(item)
 			})
 		},
 		inputTagSise(child, index) {
@@ -243,13 +220,12 @@ export default {
 			if (status) {
 				this.tableData.pop()
 			} else {
-				this.tableData.push({
-					col1: '000',
-					col2: '000',
-					col3: '000',
-					col4: '000',
-					col5: '000',
+				let obj = {};
+				this.tagList.map((item, index) => {
+					obj['col' + (index + 1)] = 0
 				})
+				console.log(obj);
+				this.tableData.push(obj)
 			}
 		},
 	},
@@ -286,6 +262,7 @@ export default {
 				.input-new-tag {
 					width: 90px;
 					margin-right: 10px;
+					margin-bottom: 10px;
 					vertical-align: bottom;
 				}
 			}
@@ -382,7 +359,7 @@ export default {
 						align-items: center;
 						justify-content: center;
 						span {
-							color: rgba($color: #000000, $alpha: 0.65);
+							color: rgba($color: #000, $alpha: 0.65);
 							font-size: 12px;
 						}
 						// &:first-child {
@@ -417,7 +394,7 @@ export default {
 				text-align: center;
 				line-height: 24px;
 				font-size: 14px;
-				color: rgba($color: #000000, $alpha: 0.55);
+				color: rgba($color: #000, $alpha: 0.55);
 				span {
 					font-weight: 400;
 					color: rgba($color: #f00, $alpha: 0.85);
