@@ -98,7 +98,7 @@
 								<input type="file" @change="uploadProductImg($event, 'productImgColor' + idx)" />
 							</form>
 						</div>
-						<p>{{ 'CY-' + (idx + 1) }}</p>
+						<p>{{ 'CY-' + (idx) }}</p>
 					</li>
 				</ul>
 			</div>
@@ -360,7 +360,7 @@ export default {
 						justify-content: center;
 						span {
 							color: rgba($color: #000, $alpha: 0.65);
-							font-size: 12px;
+							font-size: 16px;
 						}
 						// &:first-child {
 						// 	width: 30%;
@@ -429,7 +429,7 @@ export default {
 					}
 					p {
 						width: 100%;
-						font-size: 12px;
+						font-size: 14px;
 						text-align: center;
 					}
 				}
